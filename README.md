@@ -20,3 +20,8 @@ main.py file takes a google drive folder as input with optional argument destina
 ```
 python main.py folderId --destination localDestination
 ```
+A folder's folderId is the unique url ending that can be found via a sharing link or the browser's url bar i.e.
+
+```
+https://drive.google.com/drive/folders/folderID
+```
