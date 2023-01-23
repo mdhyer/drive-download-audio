@@ -87,7 +87,6 @@ def download_file(real_file_id, destination, title, creds):
     try:
         file_id = real_file_id
 
-        # pylint: disable=maybe-no-member
         serve = build('drive', 'v2', credentials=creds)
         request = serve.files().get_media(fileId=file_id)
 
@@ -130,7 +129,7 @@ def search_children(file_id, destination, results):
     item = items[0]
 
     id = item['id']
-    temp = service.files().get(fileId=id, supportsAllDrives=True)  # .execute()
+    temp = service.files().get(fileId=id, supportsAllDrives=True)
     temp = patient_execute(temp)
     mime = temp.get('mimeType', [])
     title = temp.get('title', [])
@@ -149,7 +148,7 @@ def search_children(file_id, destination, results):
         if 'nextPageToken' in results:
             nextfolder = service.children().list(
                     folderId=file_id, maxResults=1,
-                    orderBy='folder', pageToken=results['nextPageToken'])  # .execute()
+                    orderBy='folder', pageToken=results['nextPageToken'])
             nextfolder = patient_execute(nextfolder)
 
             return search_children(file_id, destination, nextfolder)
@@ -158,15 +157,13 @@ def search_children(file_id, destination, results):
             return None
 
     elif 'audio' in mime:
-        # thread = Thread(target=download_file, args=(id, destination, title))
-        # thread.start()
 
         pool.apply_async(download_file, args=(id, destination, title, creds))
 
         if 'nextPageToken' in results:
             nextresults = service.children().list(
                 folderId=file_id, maxResults=1,
-                orderBy='folder', pageToken=results['nextPageToken'])  # .execute()
+                orderBy='folder', pageToken=results['nextPageToken'])
             nextresults = patient_execute(nextresults)
 
             return search_children(file_id, destination, nextresults)
@@ -177,7 +174,7 @@ def search_children(file_id, destination, results):
         if 'nextPageToken' in results:
             nextresults = service.children().list(
                 folderId=file_id, maxResults=1,
-                orderBy='folder', pageToken=results['nextPageToken'])  # .execute()
+                orderBy='folder', pageToken=results['nextPageToken'])
             nextresults = patient_execute(nextresults)
 
             return search_children(file_id, destination, nextresults)
@@ -211,10 +208,10 @@ if __name__ == '__main__':
     global folderId
     folderId = args.folderId
 
-    # Call the Drive v3 API
+    # Call the Drive API
     results = service.children().list(
         folderId=folderId, maxResults=1,
-        orderBy='folder')  # .execute()
+        orderBy='folder')
     results = patient_execute(results)
 
     downloading = True
