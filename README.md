@@ -14,9 +14,6 @@ Script uses OAuth 2.0 for verifying user credentials. The correct credentials.js
 
 See: https://developers.google.com/people/quickstart/python for help with OAuth 2.0
 
-# ToDo:
-Currently, script cannot handle the case where a used is not authorized. The OAuth 2.0 flow will display the correct screen saying a user does not have access to a Drive folder, but the pyton script will hang and reject ctrl+c cancellation. The python session must be terminated.
-
 
 # Usage
 main.py file takes a google drive folder as input with optional argument destination.
@@ -27,3 +24,6 @@ A folder's folderId is the unique url ending that can be found via a sharing lin
 
 
 https://drive.google.com/drive/folders/folderId or https://drive.google.com/drive/folders/folderId?usp=sharing
+
+# ToDo:
+Currently, script cannot handle the case where a used is not authorized. The OAuth 2.0 flow will display the correct screen saying a user does not have access to a Drive folder, but the pyton script will hang and reject ctrl+c cancellation. The python session must be terminated.
