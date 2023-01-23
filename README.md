@@ -23,4 +23,4 @@ python main.py folderId --destination localDestination
 A folder's folderId is the unique url ending that can be found via a sharing link or the browser's url bar i.e.
 
 
-https://drive.google.com/drive/folders/folderI or https://drive.google.com/drive/folders/folderId?usp=sharing
+https://drive.google.com/drive/folders/folderId or https://drive.google.com/drive/folders/folderId?usp=sharing
