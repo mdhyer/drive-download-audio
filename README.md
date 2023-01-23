@@ -6,4 +6,5 @@ Preserves folder structure and original filenames. Currently only downloads audi
 
 # Usage
 main.py file takes a google drive folder as input with optional argument destination.
+
 python main.py folderId --destination localDestination
