@@ -26,4 +26,4 @@ A folder's folderId is the unique url ending that can be found via a sharing lin
 https://drive.google.com/drive/folders/folderId or https://drive.google.com/drive/folders/folderId?usp=sharing
 
 # ToDo:
-Currently, script cannot handle the case where a used is not authorized. The OAuth 2.0 flow will display the correct screen saying a user does not have access to a Drive folder, but the pyton script will hang and reject ctrl+c cancellation. The python session must be terminated.
+Currently, script cannot handle the case where a user is not authorized. The OAuth 2.0 flow will display the correct screen saying a user does not have access to a Drive folder, but the pyton script will hang and reject ctrl+c cancellation. The python session must be terminated.
