@@ -187,6 +187,8 @@ if __name__ == '__main__':
     import time
     start = time.time()
 
+    creds = check_credentials()
+
     set_start_method('spawn')
 
     global pool
@@ -199,8 +201,6 @@ if __name__ == '__main__':
                                                                     destination is specified, uses currrent directory')
 
     args = parser.parse_args()
-
-    creds = check_credentials()
 
     global service
     service = build('drive', 'v2', credentials=creds)
